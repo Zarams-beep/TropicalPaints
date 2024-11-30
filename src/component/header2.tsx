@@ -16,7 +16,6 @@ import { MdPhonelinkRing } from "react-icons/md";
 
 export default function Header2() {
   const [isSticky, setSticky] = useState(1);
-  const [windowWidth, setWindowWidth] = useState<number | null>(null);
   const [is992, setIs992] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
@@ -32,7 +31,6 @@ export default function Header2() {
 
     const updateWindowWidth = () => {
       const width = window.innerWidth;
-      setWindowWidth(width);
       setIs992(width <= 992);
     };
 
@@ -108,7 +106,7 @@ export default function Header2() {
                 </p>
 
                 {isOpen && (
-                  <div className={`navigatePages2 ${isOpen? 'navigateOpen':''}`}>
+                  <div className={`navigatePages2 ${isOpen ? "navigateOpen" : ""}`}>
                     <p className="linkHome">Home</p>
                     <p className="linkAbout">About Us</p>
                     <p className="linkPages">Pages</p>
@@ -117,7 +115,9 @@ export default function Header2() {
                     <div className="linkContact" onClick={toggleSubMenu}>
                       <div className="contact-flex">
                         <p>Contact</p>
-                        <p className="arrowContact">{isOpen2 ? <IoIosArrowUp /> : <IoIosArrowDown />}</p>
+                        <p className="arrowContact">
+                          {isOpen2 ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                        </p>
                       </div>
                     </div>
 
@@ -126,16 +126,24 @@ export default function Header2() {
                         <div className="phoneNumber">
                           <MdPhonelinkRing style={iconStyle} />
                           <div className="divNumbers">
-                            <p><Link href="tel:+1234567890">+1 (234) 567 890</Link></p>
-                            <p><Link href="tel:+1234567890">+1 (234) 567 890</Link></p>
+                            <p>
+                              <Link href="tel:+1234567890">+1 (234) 567 890</Link>
+                            </p>
+                            <p>
+                              <Link href="tel:+1234567890">+1 (234) 567 890</Link>
+                            </p>
                           </div>
                         </div>
 
                         <div className="mail">
                           <BsEnvelopeAt style={iconStyle} />
                           <div className="mailList">
-                            <Link href="mailto:youremail@example.com">youremail@example.com</Link>
-                            <Link href="mailto:youremail@example.com">youremail@example.com</Link>
+                            <Link href="mailto:youremail@example.com">
+                              youremail@example.com
+                            </Link>
+                            <Link href="mailto:youremail@example.com">
+                              youremail@example.com
+                            </Link>
                           </div>
                         </div>
 
