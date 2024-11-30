@@ -92,4 +92,7 @@
 .arrowContact{
   @apply cursor-pointer
 }
+.menuStyle .subMenu .divNumbers,.menuStyle .subMenu .mailList,.menuStyle .subMenu .address{
+  @apply flex flex-wrap gap-1 mb-1
+}
 /* media */
