@@ -1,0 +1,127 @@
+/* second part styling starts*/
+.secondPart,.thirdPart,.fourthPart, .fifthPart,.sixthPart,.seventhPart,.eightPart,footer{
+    @apply relative top-[3rem] px-[2%] smm:px-[6rem];
+  }
+  
+  .secondPart::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; 
+    background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none" height="100%" width="100%"><path d="M790.5,93.1c-59.3-5.3-116.8-18-192.6-50c-29.6-12.7-76.9-31-100.5-35.9c-23.6-4.9-52.6-7.8-75.5-5.3 c-10.2,1.1-22.6,1.4-50.1,7.4c-27.2,6.3-58.2,16.6-79.4,24.7c-41.3,15.9-94.9,21.9-134,22.6C72,58.2,0,25.8,0,25.8V100h1000V65.3 c0,0-51.5,19.4-106.2,25.7C839.5,97,814.1,95.2,790.5,93.1z" fill="black"/></svg>');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    filter: brightness(0) invert(1) brightness(95.5%);
+    padding-top: 30px;
+    z-index: -20;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  .chooseUs p, .paintService p, .TeamService p, .priceService p,.testService p,.projectService p,.blogService p{
+    @apply w-full;
+  }
+  
+  @keyframes increase {
+    0% {
+      font-size: 1rem; 
+    }
+    50% {
+      font-size: 2rem; 
+    }
+    100% {
+      font-size: 1.5rem;
+    }
+  }
+  .chooseUs .increase, .paintService .h2Third, .TeamService .h2Fourth, .priceService .h2Fifth,.testService .h2Six,.projectService .h2Seven,.blogService .h2Eight{
+    animation: increase 2s forwards;
+  }
+  @media only screen and (max-width:724px) {
+    .chooseUs .increase, .paintService .h2Third, .TeamService .h2Fourth, .priceService .h2Fifth,.testService .h2Six,.projectService .h2Seven,.blogService .h2Eight{
+      @apply animate-none
+    }
+    
+  }
+  .chooseUs,.paintService,.TeamService,.priceService,.testService,.projectService,.blogService{
+    @apply flex items-center flex-col justify-center text-center text-[black] gap-3;
+  }
+  .chooseUs h2,.paintService h2,.TeamService h2,.priceService h2,.testService h2,.projectService h2,.blogService h2{
+    @apply flex items-center font-bold text-[.9rem] smm:text-[1.4rem]
+  }
+  .brush{
+    transform: rotate(180deg);
+    color: darkslategray;
+    margin-bottom: 2px;
+  }
+  .chooseUs p,.paintService p,.TeamService p,.priceService p,.testService p,.projectService p,.blogService p{
+    @apply text-[.8rem] smm:text-[1rem] mb-8 text-[black] tracking-[.4px]
+  }
+  .gridchooseUs {
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    align-items: start;
+}
+  .smallcontainer1,.smallcontainer2,.smallcontainer4,.smallcontainer5{
+    @apply border-r border-dashed border-[darkslategray] flex items-center justify-center flex-col text-center gap-3 mb-0
+  }
+  
+  .smallcontainer1,.smallcontainer2,.smallcontainer3{
+    @apply border-b border-dashed border-[darkslategray] flex items-center justify-center flex-col text-center gap-3
+  }
+  @media only screen and (max-width:992px) {
+    .gridchooseUs{
+      grid-template-columns: repeat(2,auto);
+    }
+    .smallcontainer1,.smallcontainer2,.smallcontainer3,.smallcontainer4,.smallcontainer5{
+      border: none;
+      padding: 0;
+      /* margin-bottom: 2rem; */
+      border-style: none;
+    }}
+  .smallcontainer3,.smallcontainer6{
+    @apply flex items-center justify-center flex-col text-center gap-3
+  }
+  
+  @keyframes moveUp {
+    from{
+      transform: translateY(100%);
+    }
+    to{
+      transform: translateY(0);
+    }
+  }
+  .smallcontainer1,.smallcontainer2,.smallcontainer3,.smallcontainer4,.smallcontainer5,.smallcontainer6{
+    @apply p-[10px] smm:p-[15px] text-[black]
+  }
+  .smallcontainer4,.smallcontainer5,.smallcontainer6{
+    @apply mb-[4rem];
+  }
+  .up{animation: moveUp 1s forwards;}
+  .up1{animation: moveUp 2s forwards;}
+  .up2{animation: moveUp 3s forwards;}
+  .up3{animation: moveUp 3.2s forwards;}
+  .up4{animation: moveUp 3.5s forwards;}
+  .up5{animation: moveUp 3.7s forwards;}
+  .gridchooseUs .icons{
+    @apply text-[1.5rem] smm:text-[3rem] text-[#598a8a];
+    transition: transform 1s ease-in-out, cursor 1s ease-in-out;
+  }
+  
+  
+  .gridchooseUs .icons:hover{
+    transform: translateY(-20%);
+    cursor: pointer;
+  }
+  
+  .gridchooseUs h2{
+    transition: color 1s ease-in-out, cursor 1s ease-in-out;
+    @apply text-[.9rem] smm:text-[1.3rem] font-[900] 
+    hover:text-[#598a8a] hover:cursor-pointer
+  }
+  .gridchooseUs p{
+    @apply pb-3 smm:text-[16px] text-[12px]
+  }
+  /* second part styling ends */
+  

@@ -1,0 +1,70 @@
+/* third part styling starts */
+.thirdPart{
+    @apply top-[2.8rem] border-0 bg-[#f3f3f3] relative z-[-100];
+  }
+  .paintService h2,.TeamService h2{
+    @apply mb-0;
+  }
+  .paintServiceGird{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    gap: 20px;
+    padding-bottom: 8rem;
+  }
+  @media only screen and (max-width:1212px) {
+    .paintServiceGird{
+     @apply flex flex-wrap
+    }
+   }
+  
+  .paintServiceGird .paintContainer1{
+    @apply flex smm:flex-row flex-col items-center pb-[20px] leading-[.3px] smm:bg-transparent bg-[white] smm:rounded-none rounded-[1rem] smm:shadow-none shadow-[0px_4px_6px_1px_rgba(138,135,135,0.3)] w-full;
+  }
+  
+  .btnMsg{
+    @apply text-[5rem] p-[20px] w-[20%] rounded-[10px]  text-[darkslategray] smm:border-[5px] smm:border-solid border-none smm:border-[darkslategray] flex items-center justify-center text-center hover:cursor-pointer hover:border-none smm:hover:border-[5px] smm:hover:border-solid smm:hover:border-[#598a8a];
+    transition: border 0.5s ease-in, cursor 0.5s ease-in;
+  }
+  
+  
+  .btnMsg6:hover, .btnMsg6 .icon:hover{
+    cursor: pointer;
+  }
+  .secondPaintContainer{
+    @apply bg-transparent smm:bg-[white] text-[darkslategray] text-[1rem] 
+    leading-[1.2rem]
+    flex-1 text-center flex items-center justify-center h-[80%] flex-col gap-4 shadow-none smm:shadow-[0px_4px_6px_1px_rgba(138,135,135,0.3)] ;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: color 0.5s ease-in, cursor 0.5s ease-in;
+  }
+  .secondPaintContainer h2{
+    @apply text-[.9rem] smm:text-[1.5rem] font-[800] hover:cursor-pointer text-[darkslategray]
+  }
+  .secondPaintContainer p{
+    @apply text-[10px] smm:text-[14px] leading-5
+  }
+  
+  @keyframes sideleft {
+    from{
+      transform: translateX(-100%);
+    }
+    to{
+      transform: translateX(0);
+    }
+  }
+  @keyframes sideright {
+    from{
+      transform: translateX(100%);
+    }
+    to{
+      transform: translateX(0%);
+    }
+  }
+  .sidePart{animation: sideleft 1s forwards;}
+  .sidePart1{animation: sideright 2s forwards;}
+  .sidePart2{animation: sideleft 3s forwards;}
+  .sidePart3{animation: sideright 3.2s forwards;}
+  .sidePart4{animation: sideleft 3.5s forwards;}
+  .sidePart5{animation: sideright 3.7s forwards;}
+  /* third part styling ends */

@@ -1,21 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root { 
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family:"Manrope" ;
+  padding-bottom: 200rem;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+*,
+*::after,
+*::before {
+  @apply box-border scroll-smooth;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body{
+@apply p-0 w-full relative;
+}
+.main-container{
+  @apply w-full
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+
+/* footer */
+footer{
+  @apply relative z-[-100] bg-[#181818] top-[2rem] pt-[3rem] border-none pb-[2rem]  text-[#f3f3f3] ;
+  display: grid;
+  grid-template-columns: repeat(4,auto);
+  justify-content: space-between;
+  align-items: start;
+  gap: 2rem;
+}
+@media only screen and (max-width:1212px) {
+ footer{
+  @apply flex flex-wrap
+ }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+footer .painterContainer {
+  @apply flex flex-col gap-3;
+}
+
+footer .painterContainer .iconsLogo1{
+  @apply flex items-center text-[1rem] smm:text-[2rem] font-[1000];
+}
+footer .painterContainer .iconsLogo1 .rolling-footer{
+@apply text-[2rem] smm:text-[3rem];
+}
+footer .painterContainer .notes{
+  @apply w-full smm:w-[18rem] text-justify;
+}
+footer .painterContainer .notes p{
+  @apply text-[12px] smm:text-[16px]
+}
+.recentPost{
+  @apply w-full smm:w-[20rem] flex flex-col gap-2;
+}
+.recentPost h2{
+  @apply text-[.9rem] smm:text-[1.1rem] font-[1000]
+}
+footer .mainrecentPost{
+display: grid;
+grid-template-columns:1fr;
+}
+.smallGirdPost1,.smallGirdPost2{
+  @apply flex items-center justify-between gap-2;
+}
+.img-p{
+@apply w-[6rem] h-[6rem]
+}
+.smallGirdPost1 img, .smallGirdPost2 img{
+@apply w-full h-full object-cover rounded-[.5rem];
+}
+.girdNotes h3{
+  @apply mb-0 text-[.8rem] smm:text-[1rem]
+}
+
+.girdNotes{
+  @apply flex flex-col gap-2 w-full smm:w-[13rem] text-[.7rem] smm:text-[.8rem];
+}
+.smallGirdPost1{
+  @apply pb-2
+}
+.smallGirdPost2{
+border-top: .5px solid white;
+padding-top: .5rem;
+}
+.instagramPost{
+  @apply flex flex-col gap-2 w-[10rem];
+}
+.instagramPost h2{
+  @apply font-[1000]
+}
+.instagram-gird{
+display: grid;
+grid-template-columns: repeat(3,1fr);
+gap: .4rem;
+@apply w-full;
+}
+.instagram-gird img{
+  @apply w-full h-[4rem] object-cover rounded-[.5rem];
+}
+.contactInfo{
+  @apply flex flex-col gap-2;
+}
+.contactInfo h2{
+  @apply smm:text-[16px] text-[13px] font-[1000]
+}
+.contactInfo p{
+  @apply flex items-center gap-2 text-[.8rem] smm:text-[.9rem];
 }

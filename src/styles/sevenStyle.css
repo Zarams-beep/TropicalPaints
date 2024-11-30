@@ -1,0 +1,39 @@
+.seventhPart{
+    @apply bg-[#f3f3f3] top-[3rem] border-none pb-[10rem] relative z-[-100];
+  }
+  .projectShowcase{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .projectShowcase .project1,.projectShowcase .project2{
+    @apply w-full smm:flex-row flex-col flex items-center justify-between gap-[1rem] mb-4;
+  }
+  .projectShowcase .project1 img{
+    @apply h-[20rem] object-cover rounded-[.6rem] w-[27rem] max-w-full;
+  }
+  .projectShowcase .project1 .special-img{
+    @apply w-[45rem];
+  }
+  .projectShowcase .project2 p{
+    @apply w-full h-[20rem]  rounded-[.6rem] max-w-full;
+     }
+     .projectShowcase .project2 img{
+        @apply w-full h-full object-cover
+     }
+    .seventhPart::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px; 
+      background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none" height="100%" width="100%"><path d="M790.5,93.1c-59.3-5.3-116.8-18-192.6-50c-29.6-12.7-76.9-31-100.5-35.9c-23.6-4.9-52.6-7.8-75.5-5.3 c-10.2,1.1-22.6,1.4-50.1,7.4c-27.2,6.3-58.2,16.6-79.4,24.7c-41.3,15.9-94.9,21.9-134,22.6C72,58.2,0,25.8,0,25.8V100h1000V65.3 c0,0-51.5,19.4-106.2,25.7C839.5,97,814.1,95.2,790.5,93.1z" fill="black"/></svg>');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      filter: brightness(0) invert(1) brightness(100%);
+      padding-top: 30px;
+      z-index: 1;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+  

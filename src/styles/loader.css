@@ -1,0 +1,68 @@
+/* Loader Container */
+.container-loader {
+  @apply flex items-center justify-center h-screen bg-[#2f4f4f] overflow-hidden;
+}
+
+/* Initial Styles for Logo and Text */
+.logoWrapper .logoWrapper-icon {
+  @apply text-[90px] smm:text-[120px] text-white font-bold;
+}
+/* Text Wrapper */
+.textLogoWrapper {
+  @apply flex items-center justify-center text-[30px] xs:text-[80px] smm:text-[120px] text-white font-bold;
+  display: none;
+}
+
+
+/* Logo Icon Slide Animation */
+.logoWrapper .logoWrapper-icon {
+  animation: slideInIcon 1.5s ease forwards;
+}
+
+@keyframes slideInIcon {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(-10%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/* Show Loader Text with Animations */
+.show-loader-text {
+  @apply flex xs:flex-row flex-col
+}
+.show-loader-text .Tropical {
+  animation: slideRight 1.5s ease forwards;
+}
+.show-loader-text .Paints {
+  animation: slideRight 2s ease forwards;
+}
+.show-loader-text .dot {
+  animation: slideRight 2.5s ease forwards;
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Style Adjustments */
+.textLogoWrapper .Paints,
+.logoWrapper .logoWrapper-icon,
+.textLogoWrapper .dot {
+  @apply font-normal;
+}

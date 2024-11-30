@@ -1,0 +1,95 @@
+/* first header */
+.header-1{
+    background-image: linear-gradient(to right, darkslategray 70%,#d5f5e6);
+    @apply h-auto text-[white] py-5 px-3 overflow-x-hidden relative;
+}
+
+.phoneNumber,.mail,.location,.socials{
+    @apply flex items-center;
+}
+.header-1 .section-header{
+  @apply flex flex-col text-center justify-center gap-[.9rem] 1xl:flex-row 1xl:items-center
+}
+.header-logo-container{
+  @apply w-full flex justify-center items-center 1xl:gap-[5px] 1xl:w-[28rem] 1xl:justify-start;
+}
+.header-logo-container .roller-header{
+    @apply text-[4rem] ;
+}
+.header-logo-container h1{
+    @apply text-[1.8rem];
+    
+}
+.allContacts{
+    @apply 1xl:flex 1xl:items-center 1xl:w-[72rem] justify-between text-[13px] w-full grid grid-cols-3;
+}
+.allContacts .mail .mailList{
+    @apply flex flex-col items-center
+}
+.allContacts .mail .mailList, .location p, .phoneNumber .divNumbers{
+    @apply ml-2
+}
+.socials{
+  @apply justify-center
+}
+.socials button{
+    @apply w-[2rem] h-[2rem] border-none rounded-[5px] mr-[15px] bg-[white] rotate-45;
+  }
+  .socials button a{
+    @apply w-full text-[darkslategray] flex items-center justify-center text-center no-underline rotate-[-45deg];
+  }
+.secondHeader .secondSection{
+    @apply w-full;
+    justify-content: space-between
+}
+
+/* second Header */
+.secondHeader,.navigatePages,.appointContainer button{
+  @apply flex items-center overflow-hidden;
+}
+.secondHeader{
+    @apply w-full bg-[#598a8a] py-2  ;
+}
+.linkHome, .linkAbout, .linkPages, .linkService, .linkProject, .linkContact{
+  @apply hover:cursor-pointer
+}
+.stickyIt{
+  @apply sticky top-0 w-full;
+  }
+  .secondSection{
+    @apply flex items-center overflow-x-hidden p-3 w-full;
+  }
+
+.secondSection .invisibleNavigate,.section-header .invisibleSocials,.secondSection .invisibleAppoint,.section-header .contactInvisible{
+    @apply hidden;
+  }
+  .navigatePages{
+    @apply w-[50%] justify-between text-[black]
+  }
+  .appointContainer{
+    @apply w-[15rem] flex items-center justify-center;
+  }
+  .appointContainer button {
+    @apply flex items-center justify-center gap-2 w-full h-[3rem] border-none rounded-[10px] text-[white] hover:cursor-pointer hover:bg-gradient-to-r hover:from-[#d5f5e6] hover:to-[darkslategray];
+    background-image: linear-gradient(to right, darkslategray 70%, #d5f5e6);
+    transition: background-image 5s ease-in-out, cursor 5s ease-in-out;
+  }
+  .flexAppoint{
+    @apply flex items-center justify-center text-[2rem] gap-[1rem] text-[white];
+  }
+.flexLeft{
+  @apply cursor-pointer
+}
+.navigatePages2{
+  @apply text-[14px] absolute right-2 p-5 flex flex-col h-auto z-[2000] mt-1 bg-[darkslategray] shadow-[0px_4px_4px_1px_rgba(138,135,135,0.3)]
+}
+.navigatePages2 .linkContact{
+  @apply flex flex-col gap-2
+}
+.contact-flex{
+  @apply flex items-center gap-1 
+}
+.arrowContact{
+  @apply cursor-pointer
+}
+/* media */

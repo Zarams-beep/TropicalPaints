@@ -1,0 +1,44 @@
+/* introductory style starts */
+.introductory{
+    background-image: url('/png/kenny-eliason-Wp7t4cWN-68-unsplash.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    top: 0rem;
+    left: 0;
+    right: 0;
+    z-index: -1;  
+    border-bottom: 1px wavy black;
+    border: none;
+  width: 100%;
+  }
+  .introductory::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; 
+    margin-bottom: -0.3rem;
+    background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none" height="100%" width="100%"><path d="M790.5,93.1c-59.3-5.3-116.8-18-192.6-50c-29.6-12.7-76.9-31-100.5-35.9c-23.6-4.9-52.6-7.8-75.5-5.3 c-10.2,1.1-22.6,1.4-50.1,7.4c-27.2,6.3-58.2,16.6-79.4,24.7c-41.3,15.9-94.9,21.9-134,22.6C72,58.2,0,25.8,0,25.8V100h1000V65.3 c0,0-51.5,19.4-106.2,25.7C839.5,97,814.1,95.2,790.5,93.1z" fill="black"/></svg>');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    filter: brightness(0) invert(1) brightness(100%);
+  }
+  .about-container{
+    @apply bg-[red] w-full p-0 m-0
+  }
+  .introContainer{
+  @apply flex justify-center pl-10 pb-12 flex-col h-full pr-3;
+  }
+  .introContainer h2{
+    @apply w-full xs:w-[25rem] smm:w-[30rem] text-[2rem] xs:text-[2.5rem] smm:text-[3rem] text-[darkslategray] font-bold;
+  }
+  
+  .introContainer p{
+    @apply w-full smm:w-[35rem] text-[#598A8A] font-bold text-[1.2rem] text-wrap;
+  }
+  /* introductory styling ends */
+  
