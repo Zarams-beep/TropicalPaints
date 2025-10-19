@@ -4,7 +4,6 @@ import {
   motion,
   useScroll,
   useTransform,
-  useInView,
 } from "framer-motion";
 import { LiaBrushSolid } from "react-icons/lia";
 import { LuPaintbrush2 } from "react-icons/lu";
