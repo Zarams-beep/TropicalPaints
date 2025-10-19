@@ -1,99 +1,74 @@
 "use client";
-import React, { useContext } from "react";
-import { FloatContext } from "@/utils/contextProvider";
+import React from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useInView,
+} from "framer-motion";
 import { LiaBrushSolid } from "react-icons/lia";
 import { LuPaintbrush2 } from "react-icons/lu";
 import { GiSpray, GiPaintBucket, GiPencilBrush, GiTheaterCurtains } from "react-icons/gi";
 import { SiCanvas } from "react-icons/si";
 
-export default function ThirdBody (){
-    const context = useContext(FloatContext);
+export default function ThirdBody() {
+  const { scrollY } = useScroll();
+  const scale = useTransform(scrollY, [0, 100], [1, 0.95]);
+  const opacity = useTransform(scrollY, [0, 100], [1, 0.8]);
 
-    // Ensure context is available
-    if (!context) {
-        console.error("FloatContext is not provided.");
-        return null;
-    }
+  const fadeUp = {
+    initial: { opacity: 0, y: 40 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.5 },
+    viewport: { once: true },
+  };
 
-    const { floatUp } = context;
+  const services = [
+    { icon: <LuPaintbrush2 style={{ transform: "rotate(50deg)" }} />, title: "Regular Painting" },
+    { icon: <GiPencilBrush />, title: "Residential Interior" },
+    { icon: <GiSpray />, title: "Eco Xpress Painting" },
+    { icon: <SiCanvas />, title: "Water Proof Solution" },
+    { icon: <GiPaintBucket />, title: "Water Solutions" },
+    { icon: <GiTheaterCurtains />, title: "House Painting" },
+  ];
 
-    return(
-        <>
-            <section className="thirdPart">
-                    <div className="paintService">
-                        <h2 className={`${floatUp<=0.6?'h2Third':''}`}>Our Pain<span style={{borderBottom:'1px solid darkslategray'}}>ting Services </span>
-                        <LiaBrushSolid className="brush"/></h2>
-                        <p>Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores.</p></div>
-                    
-                    <div className="paintServiceGird">
-                        {/* first part */}
-                        <div className={`paintContainer1 ${floatUp<=0.6?'sidePart':''}`}>
-                            <div className="btnMsg">
-                                <LuPaintbrush2 style={{transform:'rotate(50deg)'}} className="icon"/>
-                            </div>
-                            <div className="secondPaintContainer">
-                                <h2>Regular Painting</h2>
-                                <p>Li lingues differe solmen in grammatica <br/>pronunciation commun vocabules.</p>
-                            </div>
-                        </div>
+  return (
+    <section className="thirdPart">
+      <motion.div
+        className="paintService"
+        style={{ scale, opacity }}
+      >
+        <h2>
+          Our Pain<span style={{ borderBottom: "1px solid darkslategray" }}>
+            ting Services
+          </span>
+          <LiaBrushSolid className="brush" />
+        </h2>
+        <p>
+          Omnicos directe al desirabilite de un nov lingua franca: On refusa
+          continuar payar custosi traductores.
+        </p>
+      </motion.div>
 
-                        {/* second part */}
-                        <div className={`paintContainer1 ${floatUp<=0.6?'sidePart1':''}`}>
-                            <div className="btnMsg">
-                                <GiPencilBrush/>
-                            </div>
-                            <div className="secondPaintContainer">
-                                <h2>Residential Interior</h2>
-                                <p>Li lingues differe solmen in grammatica<br/> pronunciation commun vocabules.</p>
-                            </div>
-                        </div>
-
-                        {/* third part */}
-                        <div className={`paintContainer1 ${floatUp<=0.6?'sidePart2':''}`}>
-                            <div className="btnMsg">
-                                <GiSpray/>
-                            </div>
-                            <div className="secondPaintContainer">
-                                <h2>Regular Eco Xpress Painting</h2>
-                                <p>Li lingues differe solmen in grammatica<br/> pronunciation commun vocabules.</p>
-                            </div>
-                        </div>
-
-                        {/* fourth part */}
-                        <div className={`paintContainer1 ${floatUp<=0.6?'sidePart3':''}`}>
-                        <div className="btnMsg">
-                                <SiCanvas/>
-                            </div>
-                            <div className="secondPaintContainer">
-                                <h2>Water Proof Solution</h2>
-                                <p>Li lingues differe solmen in grammatica<br/> pronunciation commun vocabules.</p>
-                            </div>
-                        </div>
-
-                        {/* fifth part */}
-                        <div className={`paintContainer1 ${floatUp<=0.6?'sidePart4':''}`}>
-                            <div className="btnMsg">
-                                <GiPaintBucket/>
-                            </div>
-                            <div className="secondPaintContainer">
-                                <h2>Water Solutions</h2>
-                                <p>Li lingues differe solmen in grammatica<br/> pronunciation commun vocabules.</p>
-                            </div>
-                        </div>
-
-                        {/* sixth part */}
-                        <div className={`paintContainer1 ${floatUp<=0.6?'sidePart5':''}`}>
-                            <div className="btnMsg">
-                                <GiTheaterCurtains/>
-                            </div>
-                            <div className="secondPaintContainer">
-                                <h2>House Painting</h2>
-                                <p>Li lingues differe solmen in grammatica<br/> pronunciation commun vocabules.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </section>
-        </>
-    )
+      <div className="paintServiceGird">
+        {services.map((item, index) => (
+          <motion.div
+            key={index}
+            className="paintContainer1"
+            {...fadeUp}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <div className="btnMsg">{item.icon}</div>
+            <div className="secondPaintContainer">
+              <h2>{item.title}</h2>
+              <p>
+                Li lingues differe solmen in grammatica
+                <br /> pronunciation commun vocabules.
+              </p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
 }

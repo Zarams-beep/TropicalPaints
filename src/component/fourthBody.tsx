@@ -1,94 +1,115 @@
 "use client";
-import React, { useContext } from "react";
-import { FloatContext } from "@/utils/contextProvider";
+import React from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { LiaBrushSolid } from "react-icons/lia";
 import Link from "next/link";
-import { TiSocialFacebookCircular,TiSocialLinkedin,TiSocialGooglePlusCircular,TiSocialTwitter } from "react-icons/ti";
+import {
+  TiSocialFacebookCircular,
+  TiSocialLinkedin,
+  TiSocialGooglePlusCircular,
+  TiSocialTwitter,
+} from "react-icons/ti";
 import Image from "next/image";
-export default function FourthBody (){
-    const context = useContext(FloatContext);
 
-    // Ensure context is available
-    if (!context) {
-        console.error("FloatContext is not provided.");
-        return null;
-    }
+export default function FourthBody() {
+  const { scrollY } = useScroll();
+  const scale = useTransform(scrollY, [0, 200], [1, 0.95]);
+  const opacity = useTransform(scrollY, [0, 200], [1, 0.7]);
 
-    const { floatUp } = context;
-    return(
-        <>
-            <section className="fourthPart">
-                <div className="TeamService">
-                        <h2 style={{borderBottom:'1px solid darkslategray'}}className={`${floatUp<=0.6?'h2Fourth':''}`}>Our Team <LiaBrushSolid className="brush"/></h2>
-                        <p>Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores.</p></div>
-                <div className="teamMembers">
+  const teamData = [
+    {
+      name: "Paulene Andrew",
+      title: "Water Color Painter",
+      img: "/png/muhammad-rahim-ali-auNr-4jnx8U-unsplash.jpg",
+    },
+    {
+      name: "Paul Isreal",
+      title: "House Painter",
+      img: "/png/luigi-estuye-lucreative-5wKvYUcWPYQ-unsplash.jpg",
+    },
+    {
+      name: "Robert Micheal",
+      title: "Wood Painter",
+      img: "/png/tim-mossholder-bwbauFRbNyo-unsplash.jpg",
+    },
+    {
+      name: "Oliver Josh",
+      title: "Color Painter",
+      img: "/png/johan-mouchet-qDLdKMBmC6o-unsplash.jpg",
+    },
+  ];
 
-                    {/* Teammate 1 */}
-                    <div className={`teammate teammate1 ${floatUp<=0.6?'up':''}`}>
-                    <div className="">
-                    <Image src="/png/muhammad-rahim-ali-auNr-4jnx8U-unsplash.jpg" alt="Paulene Andrew" width={1000} height={1000} loading="lazy" />
-                    </div>
-                        <h4>Paulene Andrew</h4>
-                        <h6>Water Color Painter</h6>
+  return (
+    <section className="fourthPart">
+      {/* Title */}
+      <div className="TeamService">
+        <motion.h2
+          className="animatedTeamHeader"
+          style={{
+            borderBottom: "1px solid darkslategray",
+            scale,
+            opacity,
+          }}
+        >
+          Our Team <LiaBrushSolid className="brush" />
+        </motion.h2>
+        <p>
+          Omnicos directe al desirabilite de un nov lingua franca: On refusa
+          continuar payar custosi traductores.
+        </p>
+      </div>
 
-                        <div className="floatSocials">
-                           <button> <Link href='/' className="linkStyle"><TiSocialFacebookCircular/></Link>
-                            </button>
-                            <button><Link href='/' className="linkStyle"><TiSocialLinkedin/></Link></button>
-                            <button><Link href='/' className="linkStyle"><TiSocialTwitter/></Link></button>
-                            <button><Link href='/' className="linkStyle"><TiSocialGooglePlusCircular/></Link></button>
-                        </div>
-                    </div>
+      {/* Team Members */}
+      <div className="teamMembers">
+        {teamData.map((member, index) => (
+          <motion.div
+            key={member.name}
+            className={`teammate teammate${index + 1}`}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: true }}
+//             whileHover={{ scale: 1.03 }}
+// whileTap={{ scale: 0.97 }}
 
-                    {/* Teammate 2 */}
-                    <div className={`teammate  teammate2 ${floatUp<=0.6?'up1':''}`}>
-                    <div className="">
-                    <Image src="/png/luigi-estuye-lucreative-5wKvYUcWPYQ-unsplash.jpg" alt="Paul Isreal" width={1000} height={1000} loading="lazy" />
-                    </div>
-                        <h4>Paul Isreal</h4>
-                        <h6>House Painter</h6>
+          >
+            <div>
+              <Image
+                src={member.img}
+                alt={member.name}
+                width={1000}
+                height={1000}
+                loading="lazy"
+              />
+            </div>
+            <h4>{member.name}</h4>
+            <h6>{member.title}</h6>
 
-                        <div className="floatSocials">
-                           <button> <Link href='/' className="linkStyle"><TiSocialFacebookCircular/></Link>
-                            </button>
-                            <button><Link href='/' className="linkStyle"><TiSocialLinkedin/></Link></button>
-                            <button><Link href='/' className="linkStyle"><TiSocialTwitter/></Link></button>
-                            <button><Link href='/' className="linkStyle"><TiSocialGooglePlusCircular/></Link></button>
-                        </div>
-                    </div>
-                    
-                    
-                    {/* Teammate 3 */}
-                    <div className={`teammate teammate3 ${floatUp<=0.6?'up2':''}`}>
-                    <Image src="/png/tim-mossholder-bwbauFRbNyo-unsplash.jpg" alt="Robert Micheal" width={1000} height={1000} loading="lazy" />
-                        <h4>Robert Micheal</h4>
-                        <h6>Wood Painter</h6>
-
-                        <div className="floatSocials">
-                           <button> <Link href='/' className="linkStyle"><TiSocialFacebookCircular/></Link>
-                            </button>
-                            <button><Link href='/' className="linkStyle"><TiSocialLinkedin/></Link></button>
-                            <button><Link href='/' className="linkStyle"><TiSocialTwitter/></Link></button>
-                            <button><Link href='/' className="linkStyle"><TiSocialGooglePlusCircular/></Link></button>
-                        </div>
-                    </div>
-
-                    {/* Teammate 4 */}
-                    <div className={`teammate teammate4 ${floatUp<=0.6?'up3':''}`}>
-                    <Image src="/png/johan-mouchet-qDLdKMBmC6o-unsplash.jpg" alt="Oliver Josh" width={1000} height={1000} loading="lazy" />
-                        <h4>Oliver Josh</h4>
-                        <h6>Color Painter</h6>
-
-                        <div className="floatSocials">
-                           <button> <Link href='/' className="linkStyle"><TiSocialFacebookCircular/></Link>
-                            </button>
-                            <button><Link href='/' className="linkStyle"><TiSocialLinkedin/></Link></button>
-                            <button><Link href='/' className="linkStyle"><TiSocialTwitter/></Link></button>
-                            <button><Link href='/' className="linkStyle"><TiSocialGooglePlusCircular/></Link></button>
-                        </div>
-                    </div>
-                </div>
-                </section>
-        </>
-    )
+            <div className="floatSocials">
+              <button>
+                <Link href="/" className="linkStyle">
+                  <TiSocialFacebookCircular />
+                </Link>
+              </button>
+              <button>
+                <Link href="/" className="linkStyle">
+                  <TiSocialLinkedin />
+                </Link>
+              </button>
+              <button>
+                <Link href="/" className="linkStyle">
+                  <TiSocialTwitter />
+                </Link>
+              </button>
+              <button>
+                <Link href="/" className="linkStyle">
+                  <TiSocialGooglePlusCircular />
+                </Link>
+              </button>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
 }

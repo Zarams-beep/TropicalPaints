@@ -1,6 +1,6 @@
 "use client";
-import React, { useContext } from "react";
-import { FloatContext } from "@/utils/contextProvider";
+import React from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { LiaBrushSolid } from "react-icons/lia";
 import { LuPaintbrush } from "react-icons/lu";
 import { RiPaintBrushFill } from "react-icons/ri";
@@ -8,98 +8,74 @@ import { GiSpray, GiDrippingKnife, GiPaintBucket } from "react-icons/gi";
 import { SiCanvas } from "react-icons/si";
 
 export default function SecondBody() {
-    // Consume the FloatContext
-    const context = useContext(FloatContext);
+  const { scrollY } = useScroll();
+  const scale = useTransform(scrollY, [0, 150], [1, 0.95]);
+  const opacity = useTransform(scrollY, [0, 150], [1, 0.7]);
 
-    // Ensure context is available
-    if (!context) {
-        console.error("FloatContext is not provided.");
-        return null;
-    }
+  const features = [
+    {
+      title: "Window Washing",
+      Icon: LuPaintbrush,
+    },
+    {
+      title: "Color Proof",
+      Icon: GiSpray,
+    },
+    {
+      title: "Mildew Removal",
+      Icon: GiDrippingKnife,
+    },
+    {
+      title: "Faux Finishes",
+      Icon: RiPaintBrushFill,
+    },
+    {
+      title: "Water Proofing",
+      Icon: GiPaintBucket,
+    },
+    {
+      title: "Pre-Point Demo",
+      Icon: SiCanvas,
+    },
+  ];
 
-    const { floatUp } = context;
+  return (
+    <section className="secondPart">
+      {/* Title */}
+      <div className="chooseUs">
+        <motion.h2 style={{ scale, opacity }}>
+          W
+          <span style={{ borderBottom: "1px solid darkslategray" }}>
+            hy Choose Us
+          </span>
+          <LiaBrushSolid className="brush" />
+        </motion.h2>
+        <p>
+          Omnicos directe al desirabilite de un nov lingua franca: On refusa
+          continuar payar custosi traductores.
+        </p>
+      </div>
 
-    return (
-        <>
-            <div className="">
-                <section className="secondPart">
-                    <div className="chooseUs">
-                        <h2 className={`${floatUp <= 0.6 ? "increase" : ""}`}>
-                            W
-                            <span style={{ borderBottom: "1px solid darkslategray" }}>
-                                hy Choose Us 
-                            </span>
-                            <LiaBrushSolid className="brush" />
-                        </h2>
-                        <p>
-                            Omnicos directe al desirabilite de un nov lingua franca: On refusa
-                            continuar payar custosi traductores.
-                        </p>
-                    </div>
-
-                    <div className="gridchooseUs">
-                        {/* Small Container 1 */}
-                        <div className={`smallcontainer1 ${floatUp <= 0.6 ? "up" : ""}`}>
-                            <LuPaintbrush className="icons" />
-                            <h2>Window Washing</h2>
-                            <p>
-                                Li lingues differe solmen in grammatica <br />
-                                pronunciation commun vocabules.
-                            </p>
-                        </div>
-
-                        {/* Small Container 2 */}
-                        <div className={`smallcontainer2 ${floatUp <= 0.6 ? "up1" : ""}`}>
-                            <GiSpray className="icons" />
-                            <h2>Color Proof</h2>
-                            <p>
-                                Li lingues differe solmen in grammatica pronunciation commun
-                                vocabules.
-                            </p>
-                        </div>
-
-                        {/* Small Container 3 */}
-                        <div className={`smallcontainer3 ${floatUp <= 0.6 ? "up2" : ""}`}>
-                            <GiDrippingKnife className="icons" />
-                            <h2>Mildew Removal</h2>
-                            <p>
-                                Li lingues differe solmen in grammatica pronunciation commun
-                                vocabules.
-                            </p>
-                        </div>
-
-                        {/* Small Container 4 */}
-                        <div className={`smallcontainer4 ${floatUp <= 0.6 ? "up3" : ""}`}>
-                            <RiPaintBrushFill className="icons" />
-                            <h2>Faux Finishes</h2>
-                            <p>
-                                Li lingues differe solmen in grammatica pronunciation commun
-                                vocabules.
-                            </p>
-                        </div>
-
-                        {/* Small Container 5 */}
-                        <div className={`smallcontainer5 ${floatUp <= 0.6 ? "up4" : ""}`}>
-                            <GiPaintBucket className="icons" />
-                            <h2>Water Proofing</h2>
-                            <p>
-                                Li lingues differe solmen in grammatica pronunciation commun
-                                vocabules.
-                            </p>
-                        </div>
-
-                        {/* Small Container 6 */}
-                        <div className={`smallcontainer6 ${floatUp <= 0.6 ? "up5" : ""}`}>
-                            <SiCanvas className="icons" />
-                            <h2>Pre-Point Demo</h2>
-                            <p>
-                                Li lingues differe solmen in grammatica pronunciation commun
-                                vocabules.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </>
-    );
+      {/* Feature Grid */}
+      <div className="gridchooseUs">
+        {features.map(({ title, Icon }, index) => (
+          <motion.div
+            key={title}
+            className={`smallcontainer${index + 1}`}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.15 }}
+            viewport={{ once: true }}
+          >
+            <Icon className="icons" />
+            <h2>{title}</h2>
+            <p>
+              Li lingues differe solmen in grammatica <br />
+              pronunciation commun vocabules.
+            </p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
 }

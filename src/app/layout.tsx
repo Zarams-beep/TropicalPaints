@@ -1,6 +1,5 @@
 import "@/app/globals.css";
-import Footer from "@/component/footer";
-import ContextProvider from "@/utils/contextProvider";
+import MainLayoutSection from "@/component/mainWrapper";
 export const metadata = {
   title: "Tropical",
   description: "Tropical Paints",
@@ -40,10 +39,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
-        <ContextProvider>
+      <MainLayoutSection>
         <main>{children}</main>
-        <Footer/>
-        </ContextProvider>
+        </MainLayoutSection>
       </body>
     </html>
   );

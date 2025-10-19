@@ -1,7 +1,7 @@
 /* first header */
 .header-1{
     background-image: linear-gradient(to right, darkslategray 70%,#d5f5e6);
-    @apply h-auto text-[white] py-5 px-3 overflow-x-hidden relative;
+    @apply h-auto text-neutral px-[2%] smm:px-[6rem] py-3 overflow-x-hidden relative;
 }
 
 .phoneNumber,.mail,.location,.socials{
@@ -17,7 +17,7 @@
     @apply text-[4rem] ;
 }
 .header-logo-container h1{
-    @apply text-[1.8rem];
+    @apply text-[1.8rem] font-clicker font-[900];
     
 }
 .allContacts{
@@ -33,14 +33,13 @@
   @apply justify-center
 }
 .socials button{
-    @apply w-[2rem] h-[2rem] border-none rounded-[5px] mr-[15px] bg-[white] rotate-45;
+    @apply w-[2rem] h-[2rem] border-none rounded-[5px] mr-[15px] bg-neutral rotate-45;
   }
   .socials button a{
-    @apply w-full text-[darkslategray] flex items-center justify-center text-center no-underline rotate-[-45deg];
+    @apply w-full text-primary flex items-center justify-center text-center no-underline rotate-[-45deg];
   }
 .secondHeader .secondSection{
-    @apply w-full;
-    justify-content: space-between
+    @apply w-full justify-between;
 }
 
 /* second Header */
@@ -48,7 +47,7 @@
   @apply flex items-center overflow-hidden;
 }
 .secondHeader{
-    @apply w-full bg-[#598a8a] py-2  ;
+    @apply w-full bg-primary-light py-3 px-[2%] smm:px-[6rem];
 }
 .linkHome, .linkAbout, .linkPages, .linkService, .linkProject, .linkContact{
   @apply hover:cursor-pointer
@@ -64,7 +63,13 @@
     @apply hidden;
   }
   .navigatePages{
-    @apply w-[50%] justify-between text-[black]
+    @apply w-[50%] justify-between text-text
+  }
+  .nav-link:hover{
+    @apply font-bold underline decoration-2 underline-offset-8 bg-[white] p-2 rounded-md;
+  }
+  .nav-link.active{
+    @apply font-bold underline decoration-2 underline-offset-8 bg-[white] p-2 rounded-md;
   }
   .appointContainer{
     @apply w-[15rem] flex items-center justify-center;
@@ -84,7 +89,7 @@
   @apply text-[14px] absolute right-2 p-5 flex flex-col h-auto z-[2000] mt-1 bg-[darkslategray] shadow-[0px_4px_4px_1px_rgba(138,135,135,0.3)]
 }
 .navigatePages2 .linkContact{
-  @apply flex flex-col gap-2
+  @apply flex flex-col gap-2 mt-3
 }
 .contact-flex{
   @apply flex items-center gap-1 
@@ -96,3 +101,15 @@
   @apply flex flex-wrap gap-1 mb-1
 }
 /* media */
+.drawer-header{
+  @apply flex justify-end mb-4
+}
+.navigatePagesMedia{
+  @apply w-full flex flex-col gap-5 text-[1.2rem] 
+}
+.navigatePagesMedia .nav-link:hover{
+    @apply font-bold underline decoration-2 underline-offset-8 bg-[darkslategray] p-2 rounded-md;
+  }
+  .navigatePagesMedia .nav-link.active{
+    @apply font-bold underline decoration-2 underline-offset-8 bg-[darkslategray] p-2 rounded-md;
+  }

@@ -4,15 +4,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
-    position: relative;
-    top: 0rem;
-    left: 0;
-    right: 0;
-    z-index: -1;  
-    border-bottom: 1px wavy black;
-    border: none;
-  width: 100%;
+    @apply h-screen relative top-0 left-0 right-0 z-[-1] border-b  border-b-black w-full;
   }
   .introductory::after {
     content: "";
@@ -28,10 +20,10 @@
     filter: brightness(0) invert(1) brightness(100%);
   }
   .about-container{
-    @apply bg-[red] w-full p-0 m-0
+    @apply w-full p-0 m-0
   }
   .introContainer{
-  @apply flex justify-center pl-10 pb-12 flex-col h-full pr-3;
+  @apply flex justify-center px-[2%] smm:px-[6rem] h-screen flex-col;
   }
   .introContainer h2{
     @apply w-full xs:w-[25rem] smm:w-[30rem] text-[2rem] xs:text-[2.5rem] smm:text-[3rem] text-[darkslategray] font-bold;

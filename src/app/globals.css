@@ -1,7 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root { 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,7 +29,7 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body{
-@apply p-0 w-full relative;
+@apply p-0 w-full relative font-coffee;
 }
 .main-container{
   @apply w-full

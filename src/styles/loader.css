@@ -1,68 +1,53 @@
-/* Loader Container */
-.container-loader {
-  @apply flex items-center justify-center h-screen bg-[#2f4f4f] overflow-hidden;
+.loader-container {
+  @apply flex flex-col items-center justify-center gap-3 h-screen bg-neutral overflow-hidden relative;
 }
 
-/* Initial Styles for Logo and Text */
-.logoWrapper .logoWrapper-icon {
-  @apply text-[90px] smm:text-[120px] text-white font-bold;
-}
-/* Text Wrapper */
-.textLogoWrapper {
-  @apply flex items-center justify-center text-[30px] xs:text-[80px] smm:text-[120px] text-white font-bold;
-  display: none;
+.brush-wrapper {
+  @apply flex justify-center items-center ;
 }
 
-
-/* Logo Icon Slide Animation */
-.logoWrapper .logoWrapper-icon {
-  animation: slideInIcon 1.5s ease forwards;
+.roller-icon {
+  @apply text-[4rem] text-primary font-clicker animate-float transition duration-300 ease-in-out;
 }
 
-@keyframes slideInIcon {
+.loader-text {
+  @apply text-center font-coffee font-bold;
+}
+
+.brand-main {
+  @apply text-[2.5rem] text-primary;
+}
+
+.brand-sub-wrapper {
+  @apply flex justify-center items-center;
+}
+
+.brand-sub {
+  @apply text-[1.5rem] text-text-muted;
+  margin-left: 0.25rem;
+}
+
+.dot::after {
+  content: '';
+  display: inline-block;
+  width: 1ch;
+  animation: dots 1.2s steps(4, end) infinite;
+}
+
+@keyframes dots {
   0% {
-    transform: translateY(100%);
-    opacity: 0;
+    content: '';
   }
-  60% {
-    transform: translateY(-10%);
-    opacity: 1;
+  25% {
+    content: '.';
+  }
+  50% {
+    content: '..';
+  }
+  75% {
+    content: '...';
   }
   100% {
-    transform: translateY(0);
-    opacity: 1;
+    content: '';
   }
-}
-
-
-/* Show Loader Text with Animations */
-.show-loader-text {
-  @apply flex xs:flex-row flex-col
-}
-.show-loader-text .Tropical {
-  animation: slideRight 1.5s ease forwards;
-}
-.show-loader-text .Paints {
-  animation: slideRight 2s ease forwards;
-}
-.show-loader-text .dot {
-  animation: slideRight 2.5s ease forwards;
-}
-
-@keyframes slideRight {
-  0% {
-    transform: translateX(50%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* Style Adjustments */
-.textLogoWrapper .Paints,
-.logoWrapper .logoWrapper-icon,
-.textLogoWrapper .dot {
-  @apply font-normal;
 }
