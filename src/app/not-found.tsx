@@ -21,8 +21,6 @@ export default function NotFoundPage() {
     return () => clearTimeout(timer);
   }, [secondsLeft, router]);
 
-  const progress = ((20 - secondsLeft) / 20) * 100; // progress circle %
-
   return (
     <div className="error-container">
       <div className="error-sub-container">
